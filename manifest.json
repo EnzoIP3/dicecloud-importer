@@ -1,9 +1,9 @@
 {
   "id": "dicecloud-importer",
   "name": "DiceCloud Character Importer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minAppVersion": "1.5.0",
-  "description": "Imports public DiceCloud v2 characters as Obsidian notes compatible with Fantasy Statblocks and Initiative Tracker.",
+  "description": "Imports public DiceCloud v2 characters as Markdown notes with Fantasy Statblocks and Initiative Tracker support.",
   "author": "EnzoIP3",
   "authorUrl": "https://github.com/EnzoIP3",
   "isDesktopOnly": false

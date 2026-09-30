@@ -11,6 +11,7 @@ const {
 
 const DEFAULT_SETTINGS = {
   folder: "Characters/DiceCloud",
+  characterPaths: {},
 };
 
 const API_ROOT = "https://dicecloud.com/api/creature/";
@@ -19,6 +20,11 @@ const CHARACTER_ROOT = "https://dicecloud.com/character/";
 class DiceCloudImporter extends Plugin {
   async onload() {
     this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    this.settings.characterPaths = Object.assign(
+      {},
+      DEFAULT_SETTINGS.characterPaths,
+      this.settings.characterPaths || {}
+    );
 
     this.addRibbonIcon("download", "Import DiceCloud character", () =>
       this.openImportModal()
@@ -74,7 +80,7 @@ class DiceCloudImporter extends Plugin {
     }).open();
   }
 
-  async importCharacter(input) {
+  async importCharacter(input, targetFile) {
     let source;
     try {
       source = parseDiceCloudInput(input);
@@ -87,7 +93,7 @@ class DiceCloudImporter extends Plugin {
     try {
       const payload = await fetchCharacter(source.id);
       const character = normalizeCharacter(payload, source);
-      const existing = await this.findCharacterFile(source.id);
+      const existing = targetFile || this.getRememberedCharacterFile(source.id);
       const oldFrontmatter = existing ? this.getFrontmatter(existing) : {};
       const currentHp = numberOrUndefined(oldFrontmatter?.["current-hp"]);
       const path = existing?.path ||
@@ -106,6 +112,9 @@ class DiceCloudImporter extends Plugin {
         file = await this.app.vault.create(path, content);
       }
 
+      this.settings.characterPaths[source.id] = file.path;
+      await this.saveSettings();
+
       notice.hide();
       new Notice(`${existing ? "Updated" : "Imported"}: ${character.name}`);
       await this.app.workspace.getLeaf(false).openFile(file);
@@ -123,18 +132,13 @@ class DiceCloudImporter extends Plugin {
       new Notice("The current note has no dicecloud-id in its frontmatter.");
       return;
     }
-    await this.importCharacter(id);
+    await this.importCharacter(id, file);
   }
 
-  async findCharacterFile(id) {
-    const files = this.app.vault.getMarkdownFiles();
-    for (const file of files) {
-      const frontmatter = this.getFrontmatter(file);
-      if (String(frontmatter?.["dicecloud-id"] || "") === String(id)) {
-        return file;
-      }
-    }
-    return undefined;
+  getRememberedCharacterFile(id) {
+    const path = this.settings.characterPaths?.[id];
+    const file = path && this.app.vault.getAbstractFileByPath(path);
+    return file instanceof TFile && file.extension === "md" ? file : undefined;
   }
 
   getActiveFile() {
