@@ -10,18 +10,19 @@
 
 [Install from the Community directory](https://community.obsidian.md/plugins/dicecloud-importer) · [Report a bug](https://github.com/EnzoIP3/dicecloud-importer/issues) · [Request a feature](https://github.com/EnzoIP3/dicecloud-importer/issues)
 
+</div>
+
+<div align="center">
+<img src="./assets/import-flow.svg" alt="DiceCloud Character Importer workflow" width="100%">
+<br>
+<sub>From a public DiceCloud sheet to a focused statblock and an Initiative Tracker combatant.</sub>
+</div>
+
 ## Why this exists
 
 DiceCloud is excellent at calculating character sheets. Markdown is excellent at keeping campaign notes close to the rest of the vault. This plugin connects the two without pretending that a player character is a monster.
 
-```mermaid
-flowchart LR
-    A[Public DiceCloud v2] -->|GET /api/creature/id| B[Character normalizer]
-    B --> C[Markdown character note]
-    C --> D[Focused Fantasy Statblock]
-    C --> E[Initiative Tracker]
-    C --> F[Spells · actions · inventory · resources]
-```
+The workflow above is a static image rather than Mermaid so it renders consistently on the GitHub and Obsidian community pages.
 
 ## Features
 
