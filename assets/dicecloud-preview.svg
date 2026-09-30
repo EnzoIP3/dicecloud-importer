@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-labelledby="title desc">
+  <title id="title">DiceCloud Character Importer preview</title>
+  <desc id="desc">Illustrated preview of an imported character note with a combat statblock and Initiative Tracker summary.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#171b2b"/>
+      <stop offset="1" stop-color="#25203a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity=".38"/>
+    </filter>
+    <style>
+      .ui { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .muted { fill: #a7adc4; }
+      .text { fill: #f5f7ff; }
+      .purple { fill: #c4b5fd; }
+      .cyan { fill: #7dd3fc; }
+      .line { stroke: #3b415c; stroke-width: 1; }
+    </style>
+  </defs>
+  <rect width="1400" height="860" rx="28" fill="url(#bg)"/>
+  <rect x="28" y="28" width="1344" height="804" rx="20" fill="#111522" stroke="#3b415c"/>
+
+  <!-- sidebar -->
+  <rect x="28" y="28" width="238" height="804" rx="20" fill="#0d111c"/>
+  <rect x="266" y="28" width="1" height="804" fill="#3b415c"/>
+  <circle cx="68" cy="72" r="18" fill="url(#accent)"/>
+  <path d="M61 72h14M68 65v14" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="98" y="78" class="ui text" font-size="18" font-weight="700">Campaign Vault</text>
+  <text x="52" y="132" class="ui muted" font-size="13">CHARACTERS</text>
+  <rect x="44" y="150" width="204" height="42" rx="9" fill="#282343"/>
+  <rect x="57" y="163" width="16" height="16" rx="4" fill="#8b5cf6"/>
+  <text x="85" y="176" class="ui text" font-size="14">Cassian Dlusker</text>
+  <text x="52" y="226" class="ui muted" font-size="13">ENCOUNTERS</text>
+  <text x="70" y="266" class="ui muted" font-size="14">Lantern Vault</text>
+  <text x="70" y="302" class="ui muted" font-size="14">The Old Observatory</text>
+  <rect x="44" y="724" width="204" height="70" rx="12" fill="#1a2031" stroke="#3b415c"/>
+  <text x="62" y="751" class="ui cyan" font-size="12" font-weight="700">DICECLOUD SYNC</text>
+  <text x="62" y="774" class="ui muted" font-size="12">Public • read-only</text>
+
+  <!-- document -->
+  <text x="306" y="82" class="ui muted" font-size="13">Characters / DiceCloud</text>
+  <text x="306" y="130" class="ui text" font-size="32" font-weight="750">Cassian Dlusker Valmorra</text>
+  <text x="306" y="160" class="ui muted" font-size="14">Imported from DiceCloud v2 · refreshed today</text>
+  <rect x="306" y="186" width="646" height="3" rx="2" fill="url(#accent)"/>
+
+  <!-- left note content -->
+  <text x="306" y="232" class="ui purple" font-size="14" font-weight="700">COMBAT SUMMARY</text>
+  <rect x="306" y="250" width="646" height="126" rx="12" fill="#191e2d" stroke="#3b415c"/>
+  <g class="ui">
+    <text x="332" y="284" class="muted" font-size="12">LEVEL</text><text x="332" y="316" class="text" font-size="25" font-weight="700">5</text>
+    <text x="446" y="284" class="muted" font-size="12">HP</text><text x="446" y="316" class="text" font-size="25" font-weight="700">30 / 30</text>
+    <text x="590" y="284" class="muted" font-size="12">AC</text><text x="590" y="316" class="text" font-size="25" font-weight="700">11</text>
+    <text x="704" y="284" class="muted" font-size="12">INITIATIVE</text><text x="704" y="316" class="text" font-size="25" font-weight="700">+1</text>
+    <text x="824" y="284" class="muted" font-size="12">CLASS</text><text x="824" y="316" class="text" font-size="20" font-weight="700">Wizard</text>
+    <line x1="332" y1="342" x2="926" y2="342" class="line"/>
+    <text x="332" y="362" class="muted" font-size="12">Fantasy Statblocks keeps this view focused on combat data.</text>
+  </g>
+
+  <text x="306" y="422" class="ui purple" font-size="14" font-weight="700">ABILITY SCORES</text>
+  <g class="ui">
+    <rect x="306" y="438" width="646" height="78" rx="12" fill="#191e2d" stroke="#3b415c"/>
+    <text x="332" y="466" class="muted" font-size="11">STR</text><text x="332" y="496" class="text" font-size="20" font-weight="700">9 <tspan class="muted" font-size="14">(-1)</tspan></text>
+    <text x="432" y="466" class="muted" font-size="11">DEX</text><text x="432" y="496" class="text" font-size="20" font-weight="700">12 <tspan class="muted" font-size="14">(+1)</tspan></text>
+    <text x="532" y="466" class="muted" font-size="11">CON</text><text x="532" y="496" class="text" font-size="20" font-weight="700">15 <tspan class="muted" font-size="14">(+2)</tspan></text>
+    <text x="632" y="466" class="muted" font-size="11">INT</text><text x="632" y="496" class="text" font-size="20" font-weight="700">20 <tspan class="muted" font-size="14">(+5)</tspan></text>
+    <text x="732" y="466" class="muted" font-size="11">WIS</text><text x="732" y="496" class="text" font-size="20" font-weight="700">10 <tspan class="muted" font-size="14">(+0)</tspan></text>
+    <text x="832" y="466" class="muted" font-size="11">CHA</text><text x="832" y="496" class="text" font-size="20" font-weight="700">14 <tspan class="muted" font-size="14">(+2)</tspan></text>
+  </g>
+
+  <text x="306" y="566" class="ui purple" font-size="14" font-weight="700">EXTENDED DATA</text>
+  <text x="306" y="598" class="ui text" font-size="16">Spells · Traits · Actions · Inventory · Resources</text>
+  <text x="306" y="628" class="ui muted" font-size="13">Available below the statblock as normal Markdown sections.</text>
+  <rect x="306" y="660" width="250" height="40" rx="8" fill="#282343"/>
+  <text x="331" y="685" class="ui purple" font-size="13" font-weight="700">↻  REFRESH FROM DICECLOUD</text>
+
+  <!-- right statblock -->
+  <rect x="1000" y="92" width="320" height="650" rx="14" fill="#f7f1df" filter="url(#shadow)"/>
+  <rect x="1000" y="92" width="320" height="10" rx="5" fill="#9f6bdf"/>
+  <text x="1022" y="142" fill="#241a36" font-family="Georgia, serif" font-size="22" font-weight="700">Cassian</text>
+  <text x="1022" y="164" fill="#675b70" font-family="Georgia, serif" font-size="12" font-style="italic">Medium humanoid, player character</text>
+  <line x1="1022" y1="181" x2="1298" y2="181" stroke="#9f6bdf" stroke-width="2"/>
+  <g fill="#392c42" font-family="Georgia, serif" font-size="13">
+    <text x="1022" y="208" font-weight="700">Armor Class</text><text x="1288" y="208" text-anchor="end">11</text>
+    <text x="1022" y="231" font-weight="700">Hit Points</text><text x="1288" y="231" text-anchor="end">30</text>
+    <text x="1022" y="254" font-weight="700">Initiative</text><text x="1288" y="254" text-anchor="end">+1</text>
+    <text x="1022" y="277" font-weight="700">Speed</text><text x="1288" y="277" text-anchor="end">30 ft.</text>
+  </g>
+  <line x1="1022" y1="293" x2="1298" y2="293" stroke="#c7a7df"/>
+  <g fill="#392c42" font-family="Georgia, serif" font-size="12" text-anchor="middle">
+    <text x="1048" y="318" font-weight="700">STR</text><text x="1097" y="318" font-weight="700">DEX</text><text x="1146" y="318" font-weight="700">CON</text><text x="1195" y="318" font-weight="700">INT</text><text x="1244" y="318" font-weight="700">WIS</text><text x="1290" y="318" font-weight="700">CHA</text>
+    <text x="1048" y="340">9</text><text x="1097" y="340">12</text><text x="1146" y="340">15</text><text x="1195" y="340">20</text><text x="1244" y="340">10</text><text x="1290" y="340">14</text>
+    <text x="1048" y="358">-1</text><text x="1097" y="358">+1</text><text x="1146" y="358">+2</text><text x="1195" y="358">+5</text><text x="1244" y="358">+0</text><text x="1290" y="358">+2</text>
+  </g>
+  <line x1="1022" y1="377" x2="1298" y2="377" stroke="#c7a7df"/>
+  <text x="1022" y="408" fill="#392c42" font-family="Georgia, serif" font-size="13" font-weight="700">Level 5 · Wizard</text>
+  <text x="1022" y="437" fill="#675b70" font-family="Georgia, serif" font-size="12">Skills and saves available</text>
+  <text x="1022" y="460" fill="#675b70" font-family="Georgia, serif" font-size="12">in the linked character note.</text>
+  <line x1="1022" y1="483" x2="1298" y2="483" stroke="#c7a7df"/>
+  <text x="1022" y="513" fill="#392c42" font-family="Georgia, serif" font-size="13" font-weight="700">Source</text>
+  <text x="1022" y="536" fill="#675b70" font-family="Georgia, serif" font-size="11">DiceCloud v2 · read-only import</text>
+  <rect x="1022" y="666" width="276" height="38" rx="8" fill="#eadcf5"/>
+  <text x="1160" y="690" text-anchor="middle" fill="#6d3b9e" font-family="Inter, sans-serif" font-size="12" font-weight="700">INITIATIVE TRACKER READY</text>
+
+  <text x="306" y="790" class="ui muted" font-size="12">Illustrative preview · public DiceCloud data only · no credentials required</text>
+</svg>
