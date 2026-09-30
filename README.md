@@ -10,14 +10,6 @@
 
 [Install from the Community directory](https://community.obsidian.md/plugins/dicecloud-importer) · [Report a bug](https://github.com/EnzoIP3/dicecloud-importer/issues) · [Request a feature](https://github.com/EnzoIP3/dicecloud-importer/issues)
 
-</div>
-
-<div align="center">
-<img src="./assets/dicecloud-preview.svg" alt="Illustrative preview of an imported DiceCloud character note" width="100%">
-<br>
-<sub>Illustrative preview: a readable character note, a focused combat statblock, and Initiative Tracker-ready data.</sub>
-</div>
-
 ## Why this exists
 
 DiceCloud is excellent at calculating character sheets. Markdown is excellent at keeping campaign notes close to the rest of the vault. This plugin connects the two without pretending that a player character is a monster.
