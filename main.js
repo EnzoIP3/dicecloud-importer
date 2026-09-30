@@ -513,62 +513,62 @@ function renderCharacterNote(character, options = {}) {
     "",
     `# ${character.name}`,
     "",
-    `Fuente: [DiceCloud](${character.sourceUrl})` ,
+    `Source: [DiceCloud](${character.sourceUrl})`,
     "",
     "```statblock",
     JSON.stringify(statblock, null, 2),
     "```",
     "^statblock",
     "",
-    "## Resumen",
+    "## Summary",
     "",
-    `- **Clase(s):** ${character.classes.length ? character.classes.join(", ") : "—"}`,
-    `- **Raza:** ${character.race || "—"}`,
-    `- **Alineamiento:** ${character.alignment || "—"}`,
+    `- **Class(es):** ${character.classes.length ? character.classes.join(", ") : "—"}`,
+    `- **Race:** ${character.race || "—"}`,
+    `- **Alignment:** ${character.alignment || "—"}`,
     `- **HP:** ${currentHp}/${maxHp}`,
-    `- **CA:** ${character.ac ?? "—"}`,
-    `- **Iniciativa:** ${signed(character.initiative ?? 0)}`,
-    `- **Velocidad:** ${character.speed ? `${character.speed} pies` : "—"}`,
-    `- **Bono de competencia:** ${signed(character.proficiency ?? 0)}`,
+    `- **AC:** ${character.ac ?? "—"}`,
+    `- **Initiative:** ${signed(character.initiative ?? 0)}`,
+    `- **Speed:** ${character.speed ? `${character.speed} ft.` : "—"}`,
+    `- **Proficiency Bonus:** ${signed(character.proficiency ?? 0)}`,
     "",
-    "## Características",
+    "## Ability Scores",
     "",
-    "| Característica | Puntuación | Modificador |",
+    "| Ability | Score | Modifier |",
     "|---|---:|---:|",
   ];
 
-  const abilityNames = ["Fuerza", "Destreza", "Constitución", "Inteligencia", "Sabiduría", "Carisma"];
+  const abilityNames = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
   character.stats.forEach((score, index) => {
     lines.push(`| ${abilityNames[index]} | ${score} | ${signed(abilityModifier(score))} |`);
   });
 
-  appendNumberTable(lines, "Habilidades", character.skills);
-  appendNumberTable(lines, "Salvaciones", character.saves);
+  appendNumberTable(lines, "Skills", character.skills);
+  appendNumberTable(lines, "Saving Throws", character.saves);
 
-  lines.push("", "## Hechizos y recursos", "");
+  lines.push("", "## Spells & Resources", "");
   if (character.spellDc || character.spellAttack) {
-    lines.push(`- **DC de hechizos:** ${character.spellDc ?? "—"}`);
-    lines.push(`- **Ataque de hechizo:** ${signed(character.spellAttack ?? 0)}`);
+    lines.push(`- **Spell Save DC:** ${character.spellDc ?? "—"}`);
+    lines.push(`- **Spell Attack Bonus:** ${signed(character.spellAttack ?? 0)}`);
   }
   if (character.slots.length) {
-    lines.push("", "| Nivel | Slots máximos |", "|---:|---:|");
+    lines.push("", "| Level | Maximum Slots |", "|---:|---:|");
     for (const slot of character.slots) lines.push(`| ${slot.level} | ${slot.max} |`);
   }
-  if (!character.spellDc && !character.spellAttack && !character.slots.length) lines.push("Sin datos de lanzamiento de hechizos calculados.");
+  if (!character.spellDc && !character.spellAttack && !character.slots.length) lines.push("No calculated spellcasting data.");
 
-  appendEntries(lines, "Rasgos", character.traits);
-  appendEntries(lines, "Acciones", character.actions);
-  appendEntries(lines, "Hechizos", character.spells);
-  appendEntries(lines, "Inventario", character.items);
+  appendEntries(lines, "Features", character.traits);
+  appendEntries(lines, "Actions", character.actions);
+  appendEntries(lines, "Spells", character.spells);
+  appendEntries(lines, "Inventory", character.items);
 
   lines.push(
-    "## Sincronización",
+    "## Synchronization",
     "",
-    `- **Propiedades recibidas:** ${character.propertyCount}`,
-    `- **Variables calculadas recibidas:** ${character.variableCount}`,
-    "- Esta nota es una proyección de DiceCloud para consulta y combate.",
-    "- El comando **Refresh current note from DiceCloud** actualiza los datos públicos.",
-    "- Initiative Tracker usa `hp`, `ac`, `modifier`, `level` y `player`; el HP actual de esta nota se conserva durante una actualización.",
+    `- **Properties received:** ${character.propertyCount}`,
+    `- **Calculated variables received:** ${character.variableCount}`,
+    "- This note is a DiceCloud projection for reference and combat.",
+    "- Use **Refresh current note from DiceCloud** to update public data.",
+    "- Initiative Tracker uses `hp`, `ac`, `modifier`, `level` and `player`; this note's current HP is preserved during refresh.",
     ""
   );
 
@@ -578,17 +578,17 @@ function renderCharacterNote(character, options = {}) {
 function appendNumberTable(lines, title, values) {
   lines.push("", `## ${title}`, "");
   if (!Object.keys(values).length) {
-    lines.push("Sin datos calculados.");
+    lines.push("No calculated data.");
     return;
   }
-  lines.push("| Nombre | Bono |", "|---|---:|");
+  lines.push("| Name | Bonus |", "|---|---:|");
   for (const [name, value] of Object.entries(values)) lines.push(`| ${name} | ${signed(value)} |`);
 }
 
 function appendEntries(lines, title, entries) {
   lines.push("", `## ${title}`, "");
   if (!entries.length) {
-    lines.push("Sin entradas importadas.");
+    lines.push("No imported entries.");
     return;
   }
   for (const entry of entries) {
